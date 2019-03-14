@@ -7,7 +7,7 @@
 class MyMateria
 {
 public:
-	MyMateria(MyShader *, unsigned int, unsigned int, float, float);
+	MyMateria(MyShader *, unsigned int, unsigned int, unsigned int, float, float);
 
 	void setVec3(const string &, const glm::vec3 &) const;
 	void setInt(const string &, int) const;
@@ -16,12 +16,14 @@ public:
 	MyShader * getShader();
 	unsigned int getDiffuse();
 	unsigned int getSpecular();
+	unsigned int getEmission();
 	float getShininess();
 	float getAmbientCoe();
 private:
 	MyShader *shader;
 	unsigned int diffuse;
 	unsigned int specular;
+	unsigned int emission;
 	float ambientCoe;
 	float shinness;
 };

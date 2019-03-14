@@ -78,7 +78,7 @@ float camSpeed = 2.5f;
 double lastXPos, lastYpos;
 bool mouseFistTime = true;
 double deltaTime, lastFrameTime;
-float MAX_PITCH = 50.f;
+float MAX_PITCH = 80.f;
 
 
 void framebufferCallback(GLFWwindow*, int, int);
@@ -129,8 +129,9 @@ int main()
 	MyMateria myMateria = MyMateria(myShader,
 		loadTexture("container2.png", 0, GL_RGBA, GL_RGBA),
 		loadTexture("container2_specular.png", 1, GL_RGBA, GL_RGBA),
-		.4f,
-		32.f);
+		loadTexture("matrix.jpg", 2, GL_RGB, GL_RGB),
+		.3f,
+		64.f);
 
 	
 	GLuint VAO;
@@ -187,7 +188,7 @@ int main()
 	myMateria.getShader()->setMaxtrix("projection", glm::value_ptr(projection));
 
 	glm::vec3 lightColor = glm::vec3(1.f, 1.f, 1.f);
-	glm::vec3 lightPos = glm::vec3(0.f, 10.f, -5.f);
+	glm::vec3 lightPos = glm::vec3(0.f, 15.f, 5.f);
 
 	#pragma region render loop
 	while (!glfwWindowShouldClose(window))
@@ -207,6 +208,7 @@ int main()
 
 		myMateria.getShader()->setInt("objMaterial.diffuse", 0);
 		myMateria.getShader()->setInt("objMaterial.specular", 1);
+		myMateria.getShader()->setInt("objMaterial.emission", 2);
 		myMateria.getShader()->setFloat("objMaterial.ambientCoe", myMateria.getAmbientCoe());
 		myMateria.getShader()->setFloat("objMaterial.shinness", myMateria.getShininess());
 

@@ -1,9 +1,10 @@
 #include "my_materia.h"
 
-MyMateria::MyMateria(MyShader *_shader, unsigned int _diffuse, unsigned int _specular, float _ambientCoe, float _shinness):
+MyMateria::MyMateria(MyShader *_shader, unsigned int _diffuse, unsigned int _specular, unsigned int _emission, float _ambientCoe, float _shinness):
 	shader(_shader),
 	diffuse(_diffuse),
 	specular(_specular),
+	emission(_emission),
 	ambientCoe(_ambientCoe),
 	shinness(_shinness)
 {
@@ -37,6 +38,11 @@ unsigned int MyMateria::getDiffuse()
 unsigned int MyMateria::getSpecular()
 {
 	return this->specular;
+}
+
+unsigned int MyMateria::getEmission()
+{
+	return this->emission;
 }
 
 float MyMateria::getShininess()
